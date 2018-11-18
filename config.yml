@@ -1,0 +1,18 @@
+# channel_idsは http://cal.syoboi.jp/mng?Action=ShowChList 参照（channel_idsにはChIDを書く）
+
+areas:
+  - title: "東京"
+    channel_ids:
+      - 1   # NHK総合
+      - 2   # NHK Eテレ
+      - 3   # フジテレビ
+      - 4   # 日本テレビ
+      - 5   # TBS
+      - 6   # テレビ朝日
+      - 7   # テレビ東京
+      - 8   # tvk
+      - 9   # NHK-BS1
+      - 10  # NHK-BS2
+      - 11  # NHK-BShi
+      - 19  # TOKYO MX
+      - 187 # TOKYO MX2

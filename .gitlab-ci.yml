@@ -1,0 +1,37 @@
+image: ruby:2.5-slim
+
+variables:
+  BUNDLE_CACHE: "vendor/bundle/"
+  ENVIRONMENT:  "production"
+
+cache:
+  untracked: true
+  key: "$CI_BUILD_NAME"
+  paths:
+    # variables.BUNDLE_CACHEと同じものを指定する
+    - vendor/bundle/
+
+before_script:
+  - bundle check --path=${BUNDLE_CACHE} || bundle install --path=${BUNDLE_CACHE} --jobs=2 --retry=3 --without=development
+  - bundle clean
+
+stages:
+  - build
+
+# 開発時は #test に流す
+develop:
+  stage: build
+  script:
+    - bundle exec ruby today_anime.rb
+  variables:
+    SLACK_CHANNEL: "test"
+  except:
+    - schedules
+
+# スケジューラからはIncoming Webhookに設定されてるチャンネルに流す
+scheduler:
+  stage: build
+  script:
+    - bundle exec ruby today_anime.rb
+  only:
+    - schedules
