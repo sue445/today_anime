@@ -1,0 +1,50 @@
+version: 2.1
+
+orbs:
+  ruby-orbs: sue445/ruby-orbs@1.3.4
+
+jobs:
+  today_anime:
+    parameters:
+      slack_channel:
+        type: string
+        default: ""
+    docker:
+      - image: ruby:2.5-slim
+    environment:
+      SLACK_CHANNEL: "<< parameters.slack_channel >>"
+    working_directory: ~/app
+    steps:
+      - checkout
+      - ruby-orbs/bundle-install:
+          bundle_extra_args: "--without development"
+          restore_bundled_with: false
+      - run: bundle exec ruby today_anime.rb
+
+workflows:
+  version: 2
+
+  build:
+    jobs:
+      - today_anime:
+          slack_channel: "test"
+
+  weekday_scheduler:
+    triggers:
+      - schedule:
+          cron: "0 10 * * 1-5" # JST 19:00 (Mon-Fri)
+          filters:
+            branches:
+              only: master
+    jobs:
+      - today_anime
+
+  holiday_scheduler:
+    triggers:
+      - schedule:
+          cron: "0 8 * * 0,6" # JST 17:00 (Sun,Sat)
+          filters:
+            branches:
+              only: master
+    jobs:
+      - today_anime

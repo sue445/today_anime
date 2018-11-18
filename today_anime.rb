@@ -119,7 +119,7 @@ def post_slack(username:, message:)
     unfurl_links: false,
   }
 
-  options[:channel] = ENV["SLACK_CHANNEL"] if ENV["SLACK_CHANNEL"]
+  options[:channel] = ENV["SLACK_CHANNEL"] unless ENV["SLACK_CHANNEL"].blank?
 
   puts <<~MSG
     -----------
