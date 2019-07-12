@@ -3,6 +3,7 @@ image: ruby:2.5-slim
 variables:
   BUNDLE_CACHE: "vendor/bundle/"
   ENVIRONMENT:  "production"
+  BUNDLE_PATH__SYSTEM: "false"
 
 cache:
   untracked: true

@@ -13,6 +13,7 @@ jobs:
       - image: ruby:2.5-slim
     environment:
       SLACK_CHANNEL: "<< parameters.slack_channel >>"
+      BUNDLE_PATH__SYSTEM: "false"
     working_directory: ~/app
     steps:
       - checkout
