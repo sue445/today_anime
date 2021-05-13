@@ -1,4 +1,4 @@
-image: ruby:2.7-slim
+image: ruby:3.0
 
 variables:
   BUNDLE_CACHE: "vendor/bundle/"
