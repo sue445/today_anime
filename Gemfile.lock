@@ -34,7 +34,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.13.0)
     ruby2_keywords (0.0.4)
-    slack-notifier (2.3.2)
+    slack-notifier (2.4.0)
     syobocalite (1.0.0)
       activesupport
       multi_xml
@@ -52,7 +52,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   pry-byebug
-  slack-notifier
+  slack-notifier (>= 2.4.0)
   syobocalite
   syoboi_calendar
 
