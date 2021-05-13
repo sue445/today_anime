@@ -23,6 +23,7 @@ GEM
       faraday (~> 1.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    libxml-ruby (3.2.1)
     method_source (1.0.0)
     minitest (5.14.4)
     multi_xml (0.6.0)
@@ -51,6 +52,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  libxml-ruby
   pry-byebug
   slack-notifier (>= 2.4.0)
   syobocalite
