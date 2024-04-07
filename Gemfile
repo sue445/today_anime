@@ -9,7 +9,3 @@ gem "libxml-ruby"
 gem "slack-notifier", ">= 2.4.0"
 gem "syobocalite"
 gem "syoboi_calendar"
-
-group :development do
-  gem "pry-byebug"
-end
