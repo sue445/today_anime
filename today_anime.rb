@@ -69,7 +69,7 @@ class Syobocalite::Program
 
   private
 
-  # @see https://sites.google.com/site/syobocal/spec/proginfo-flag
+  # @see https://docs.cal.syoboi.jp/spec/proginfo-flag/
   def flag
     return @flag if @flag
 
