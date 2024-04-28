@@ -66,6 +66,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   libxml-ruby
+  multi_xml
   slack-notifier (>= 2.4.0)
   syobocalite
   syoboi_calendar
