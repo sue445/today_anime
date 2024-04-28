@@ -3,6 +3,7 @@ ENV["ENVIRONMENT"] ||= "development"
 Bundler.require(*[:default, ENV["ENVIRONMENT"]].compact)
 
 require "yaml"
+require "open-uri"
 
 raise "SLACK_WEBHOOK_URL is required" unless ENV["SLACK_WEBHOOK_URL"]
 
@@ -14,6 +15,8 @@ END_MINUTE = 0
 Time.zone = "Tokyo"
 
 class Syobocalite::Program
+  USER_AGENT = "today_anime (+https://github.com/sue445/today_anime)"
+
   # Slackに投稿するための文言に整形する
   # @return [String]
   def format
@@ -70,13 +73,27 @@ class Syobocalite::Program
   private
 
   # @see https://docs.cal.syoboi.jp/spec/proginfo-flag/
+  # @return [Integer]
   def flag
-    return @flag if @flag
+    @flag ||= get_db_flag
+  end
 
-    client = SyoboiCalendar::Client.new
-    response = client.list_programs(title_id: tid, program_id: pid)
+  # @return [Integer]
+  def get_db_flag
+    params = {
+      "Command" => "ProgLookup",
+      "Fields" => "Flag",
+      "TID" => tid,
+      "PID" => pid,
+    }
 
-    @flag = response.resources.first.flag
+    headers = {
+      "User-Agent" => USER_AGENT,
+    }
+
+    xml = URI.open("https://cal.syoboi.jp/db.php?#{params.to_param}", headers).read
+    response = MultiXml.parse(xml)
+    response["ProgLookupResponse"]["ProgItems"]["ProgItem"]["Flag"].to_i
   end
 end
 
