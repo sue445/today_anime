@@ -16,46 +16,15 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     drb (2.2.1)
-    faraday (1.10.3)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0)
-      faraday-multipart (~> 1.0)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.0)
-      faraday-patron (~> 1.0)
-      faraday-rack (~> 1.0)
-      faraday-retry (~> 1.0)
-      ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.4)
-      multipart-post (~> 2)
-    faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday-rack (1.0.0)
-    faraday-retry (1.0.3)
-    faraday_middleware (1.2.0)
-      faraday (~> 1.0)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     libxml-ruby (5.0.3)
     minitest (5.22.3)
     multi_xml (0.6.0)
-    multipart-post (2.4.0)
     mutex_m (0.2.0)
-    ruby2_keywords (0.0.5)
     slack-notifier (2.4.0)
     syobocalite (1.0.1)
       activesupport
-      multi_xml
-    syoboi_calendar (0.9.4)
-      faraday
-      faraday_middleware
       multi_xml
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -69,7 +38,6 @@ DEPENDENCIES
   multi_xml
   slack-notifier (>= 2.4.0)
   syobocalite
-  syoboi_calendar
 
 BUNDLED WITH
    2.5.3
