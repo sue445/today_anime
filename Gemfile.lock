@@ -23,7 +23,7 @@ GEM
     multi_xml (0.6.0)
     mutex_m (0.2.0)
     slack-notifier (2.4.0)
-    syobocalite (1.0.1)
+    syobocalite (1.1.0)
       activesupport
       multi_xml
     tzinfo (2.0.6)
@@ -37,7 +37,7 @@ DEPENDENCIES
   libxml-ruby
   multi_xml
   slack-notifier (>= 2.4.0)
-  syobocalite
+  syobocalite (>= 1.1.0)
 
 BUNDLED WITH
    2.5.3
