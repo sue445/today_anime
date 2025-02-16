@@ -27,7 +27,6 @@ GEM
     minitest (5.25.4)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
-    parallel (1.26.3)
     securerandom (0.4.1)
     slack-notifier (2.4.0)
     syobocalite (1.1.1)
@@ -43,7 +42,6 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   libxml-ruby
-  parallel
   slack-notifier (>= 2.4.0)
   syobocalite (>= 1.1.0)
 
