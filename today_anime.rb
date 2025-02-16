@@ -11,8 +11,6 @@ SLACK_WEBHOOK_URL = ENV["SLACK_WEBHOOK_URL"]
 END_HOUR = 4
 END_MINUTE = 0
 
-MAX_THREADS = 2
-
 Time.zone = "Tokyo"
 
 class Syobocalite::Program
@@ -63,11 +61,6 @@ def perform(title:, channel_ids:)
   puts "end_at: #{end_at}"
 
   programs = Syobocalite.search(start_at: start_at, end_at: end_at)
-
-  # flag取得のためには別途APIを実行する必要があるため先にまとめて非同期で取得しておく
-  Parallel.each(programs, in_threads: MAX_THREADS) do |program|
-    program.flag
-  end
 
   programs.select! { |program| channel_ids.include?(program.ch_id) } unless channel_ids.empty?
 
