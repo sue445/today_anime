@@ -22,7 +22,7 @@ GEM
     drb (2.2.3)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    libxml-ruby (5.0.3)
+    libxml-ruby (5.0.5)
     logger (1.7.0)
     minitest (5.26.0)
     multi_xml (0.7.2)
